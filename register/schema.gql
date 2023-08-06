@@ -1,0 +1,34 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePurchaseCommand {
+  amount: Float!
+  name: String!
+}
+
+"""Inventory item"""
+type Item {
+  id: ID!
+  name: String!
+  price: Float!
+}
+
+type Mutation {
+  createPurchase(req: CreatePurchaseCommand!): Boolean!
+  refundPurchase(id: String!): String!
+}
+
+"""Purchase"""
+type Purchase {
+  amount: Float!
+  id: String!
+  name: String!
+  wasRefunded: Boolean
+}
+
+type Query {
+  item(id: String!): Item
+  purchase(id: String!): Purchase
+  purchases: [Purchase!]!
+}
